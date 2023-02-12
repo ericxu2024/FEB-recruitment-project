@@ -32,26 +32,22 @@ buttons.map( button => {
             case "+":
                 operand1 = display.innerText;
                 operator = "+";
-                display.innerText = "0";
                 break;
             case "×":
                 operand1 = display.innerText;
                 operator = "*";
-                display.innerText = "0";
                 break;
             case "-":
                 operand1 = display.innerText;
                 operator = "-";
-                display.innerText = "0";
                 break;
             case "÷":
                 operand1 = display.innerText;
                 operator = "/";
-                display.innerText = "0";
                 break;
                 
             default:
-                if (display.innerText == "0") {
+                if (display.innerText == "0" || operand1 != null) {
                     display.innerText = e.target.innerText;    
                 } else{
                     display.innerText += e.target.innerText;    
