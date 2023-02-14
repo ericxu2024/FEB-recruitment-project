@@ -8,6 +8,8 @@ let operand2 = null;
 
 let operator = null;
 
+let condition = false;
+
 buttons.map( button => {
     button.addEventListener("click", (e) => {
         switch(e.target.innerHTML) {
@@ -27,6 +29,7 @@ buttons.map( button => {
                     operand1 = null;
                     operator = null;
                     operand2 = null;
+                    condition = false;
                 }
                 break;
             case "+":
@@ -47,8 +50,11 @@ buttons.map( button => {
                 break;
                 
             default:
-                if (display.innerText == "0" || operand1 != null) {
+                if (display.innerText == "0") {
                     display.innerText = e.target.innerText;    
+                } else if (operand1 != null && !condition) {
+                    display.innerText = e.target.innerText;    
+                    condition = true;
                 } else{
                     display.innerText += e.target.innerText;    
                 }
