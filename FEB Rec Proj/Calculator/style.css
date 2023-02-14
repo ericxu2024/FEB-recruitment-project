@@ -38,7 +38,11 @@ body{
     background-color: rgba(216,217,219,255);
 }
 
-.button-orange{
+.button:active {
+    background-color: whitesmoke;
+}
+
+.button2{
     display: flex;
     justify-content: center;
     align-content: center;
@@ -56,8 +60,8 @@ body{
     color: beige;
 }
 
-.button-orange:active {
-    background-color: greys;
+.button2:active {
+    background-color: gray;
 }
 
 #display{

@@ -2,6 +2,8 @@ let display = document.getElementById("display");
 
 let buttons = Array.from(document.getElementsByClassName("button"));
 
+let buttons2 = Array.from(document.getElementsByClassName("button2"));
+
 let operand1 = null;
 
 let operand2 = null;
@@ -32,6 +34,24 @@ buttons.map( button => {
                     condition = false;
                 }
                 break;
+            default:
+                if (display.innerText == "0") {
+                    display.innerText = e.target.innerText;    
+                } else if (operand1 != null && !condition) {
+                    display.innerText = e.target.innerText;    
+                    condition = true;
+                } else{
+                    display.innerText += e.target.innerText;    
+                }
+                
+        }
+                            
+    });
+});
+
+buttons2.map( button2 => {
+    button2.addEventListener("click", (e) => {
+        switch(e.target.innerHTML) {
             case "+":
                 operand1 = display.innerText;
                 operator = "+";
@@ -48,17 +68,6 @@ buttons.map( button => {
                 operand1 = display.innerText;
                 operator = "/";
                 break;
-                
-            default:
-                if (display.innerText == "0") {
-                    display.innerText = e.target.innerText;    
-                } else if (operand1 != null && !condition) {
-                    display.innerText = e.target.innerText;    
-                    condition = true;
-                } else{
-                    display.innerText += e.target.innerText;    
-                }
-                
         }
                             
     });
